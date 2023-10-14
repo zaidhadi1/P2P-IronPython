@@ -1,0 +1,39 @@
+﻿<Window x:Class="WPFClientApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFClientApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        >
+    <Grid>
+        <TextBox Name="PythonBox" HorizontalAlignment="Center" Height="59" Margin="0,81,0,0" TextWrapping="NoWrap" Text="Python" VerticalAlignment="Top" Width="548" IsReadOnly="False"></TextBox>
+        <Button Name="PostButton" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Content="Post" Width="60" Click="PostButton_Click" Margin="615,150,0,0" RenderTransformOrigin="0.489,-2.046"></Button>
+        <TextBox x:Name="FileLoc" HorizontalAlignment="Left" Margin="197,45,0,0" TextWrapping="Wrap" Text="File Location" VerticalAlignment="Top" Width="252" Height="19" IsReadOnly="True"/>
+        <Button x:Name="GetFile" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Content="Get File" Width="60" Click="GetFile_Click" Margin="487,44,0,0" RenderTransformOrigin="0.489,-2.046"/>
+        <TextBox x:Name="urlBox"  HorizontalAlignment="Left" Margin="147,373,0,0" TextWrapping="Wrap" Text="url" VerticalAlignment="Top" Width="302"/>
+        <Button x:Name="Host" Content="Host" HorizontalAlignment="Left" Margin="487,373,0,0" VerticalAlignment="Top" Click="Host_Click"/>
+        <TextBlock x:Name="serverStatus"  HorizontalAlignment="Left" Margin="645,375,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBlock x:Name="counter" HorizontalAlignment="Left" Margin="58,375,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <ListView x:Name="clientList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="58,217,241,91">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Client" Width="400" DisplayMemberBinding="{Binding ClientName}"/>
+                    <GridViewColumn Header="Job Count" DisplayMemberBinding="{Binding JobCount}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="ResultList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="564,217,79,91">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Results"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBlock x:Name="taskStatus" HorizontalAlignment="Left" Margin="83,160,0,0" TextWrapping="Wrap" Text="Execute Status:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="taskExeStatus" HorizontalAlignment="Left" Margin="178,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <ProgressBar x:Name="taskProgBar" HorizontalAlignment="Left" Height="20" Margin="83,181,0,0" VerticalAlignment="Top" Width="464" IsIndeterminate="False"/>
+
+    </Grid>
+</Window>
